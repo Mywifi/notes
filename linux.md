@@ -64,8 +64,8 @@ vi host.NAME
 192.168.1.[1:100]
 ```
 ## command
-`ansible -i ./host.NAME NAME -m ping`
-`ansible -i ./host.NAME NAME -m shell -a "uptime"`
+`ansible -i host.NAME NAME -m ping`
+`ansible -i host.NAME NAME -m shell -a "uptime"`
 
 
 
