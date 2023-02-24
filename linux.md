@@ -43,3 +43,10 @@ or
 sudo systemctl reload ssh
 sudo systemctl reload sshd
 ```
+
+# hostname
+`sudo hostnamectl set-hostname username`
+`sudo vi /etc/host`
+127.0.1.1 username
+
+# end
