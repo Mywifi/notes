@@ -54,4 +54,19 @@ sudo systemctl reload sshd
 sudo bash -c 'echo "ubuntu ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers'
 cat /etc/sudoers
 ```
+# ansible
+## install
+sudo apt install python3-pip
+## host
+vi host.NAME
+```
+[NAME]
+192.168.1.[1:100]
+```
+## command
+`ansible -i host.NAME -m ping`
+`ansible -i host.NAME -m shell -a "uptime"`
+
+
+
 # end
