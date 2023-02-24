@@ -49,4 +49,9 @@ sudo systemctl reload sshd
 `sudo vi /etc/host`
 127.0.1.1 username
 
+# sudo no passwd
+```sh
+sudo bash -c 'echo "ubuntu ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers'
+cat /etc/sudoers
+sss
 # end
