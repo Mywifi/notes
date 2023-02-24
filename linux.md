@@ -2,6 +2,9 @@
 # ssh 
 ## forward
 ### 1
+enable `AllowAgentForwarding yes` in `/etc/ssh/sshd_config` in target server host
+reload sshd server
+### 2
 add `ForwardAgent    yes` to `~/.ssh/config`
 ```config
 Host    xxx
@@ -12,8 +15,15 @@ Host    xxx
     ForwardAgent    yes
 ```
 or add `-A` option in ssh:`ssh -A -p PORT user@host`
-### 2
-enable `AllowAgentForwarding yes` in `/etc/ssh/sshd_config`
+
+### 3
+`vi ~/bin/goto`
+```sh
+ssh-add ~/.ssh/id_ed25519
+ssh -A -p PORT user@host
+```
+
+
 
 ## ssh secure
 ```config
@@ -22,7 +32,7 @@ PasswordAuthentication no # 是否允许使用基于密码的认证
 PermitEmptyPasswords no # 禁止使用空密码的用户登录
 ChallengeResponseAuthentication no
 UsePAM no
-
+```
 ## reload
 ```sh
 /etc/init.d/ssh reload
