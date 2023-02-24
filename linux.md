@@ -53,5 +53,5 @@ sudo systemctl reload sshd
 ```sh
 sudo bash -c 'echo "ubuntu ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers'
 cat /etc/sudoers
-sss
+```
 # end
