@@ -67,6 +67,8 @@ vi host.NAME
 `ansible -i host.NAME NAME -m ping`
 `ansible -i host.NAME NAME -m shell -a "uptime"`
 
-
+# tmux
+vi ~/.tmux.conf
+`set -g mouse on` or `ctrl+b :` `setw -g mouse on`
 
 # end
