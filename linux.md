@@ -1,7 +1,9 @@
 # linux command tips
 # timezone
 ```sh
+date -R # show time zone
 sudo timedatectl set-timezone Asia/Shanghai 
+date -R
 ```
 
 # better ll
@@ -91,6 +93,7 @@ vi host.NAME
 ## command
 `ansible -i host.NAME NAME -m ping`
 `ansible -i host.NAME NAME -m shell -a "uptime"`
+`-b`to become root`-K`to input root passwd
 
 # tmux
 vi ~/.tmux.conf
