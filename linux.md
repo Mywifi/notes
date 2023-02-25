@@ -55,9 +55,9 @@ sudo bash -c 'echo "ubuntu ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers'
 cat /etc/sudoers
 ```
 # ansible
-## install
+## simple install
 sudo apt install python3-pip
-## official install
+## [official install](https://docs.ansible.com/ansible/6/installation_guide/installation_distros.html#installing-ansible-on-ubuntu)
 ```sh
 sudo apt update
 sudo apt install software-properties-common
