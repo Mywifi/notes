@@ -57,6 +57,13 @@ cat /etc/sudoers
 # ansible
 ## install
 sudo apt install python3-pip
+## official install
+```sh
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible
+```
 ## host
 vi host.NAME
 ```
