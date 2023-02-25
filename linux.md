@@ -43,6 +43,14 @@ or
 sudo systemctl reload ssh
 sudo systemctl reload sshd
 ```
+# mirror
+change
+`deb http://archive.ubuntu.com/ubuntu focal main restricted`
+to
+`deb mirror://mirrors.ubuntu.com/mirrors.txt focal main restricted`
+```sh
+sudo sed -i -e 's/http:\/\/archive/mirror:\/\/mirrors/' -e 's/\/ubuntu/\/mirrors.txt/' /etc/apt/sources.list
+```
 
 # hostname
 `sudo hostnamectl set-hostname username`
