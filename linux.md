@@ -95,6 +95,11 @@ vi host.NAME
 `ansible -i host.NAME NAME -m shell -a "uptime"`
 `-b`to become root`-K`to input root passwd
 
+## copy
+```sh
+ansible group1  -m copy -a "src=test.conf dest=/root  mode=644 owner=root"
+```
+
 # tmux
 vi ~/.tmux.conf
 `set -g mouse on` or `ctrl+b :` `setw -g mouse on`
