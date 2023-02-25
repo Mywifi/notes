@@ -70,5 +70,15 @@ vi host.NAME
 # tmux
 vi ~/.tmux.conf
 `set -g mouse on` or `ctrl+b :` `setw -g mouse on`
-
+# docker mirror
+```sh
+sudo bash -c 'cat >>/etc/docker/daemon.json <<EOF
+{
+  "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn/"]
+}
+EOF
+'
+cat /etc/docker/daemon.json
+sudo systemctl restart docker
+```
 # end
