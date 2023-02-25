@@ -1,4 +1,9 @@
 # linux command tips
+# timezone
+```sh
+sudo timedatectl set-timezone Asia/Shanghai 
+```
+
 # better ll
 ```sh
 sed -i "s/ls -alF/ls -alFh/g" ~/.bashrc
