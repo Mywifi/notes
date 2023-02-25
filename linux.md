@@ -1,4 +1,9 @@
 # linux command tips
+# better ll
+```sh
+sed -i "s/ls -alF/ls -alFh/g" ~/.bashrc
+source ~/.bashrc
+```
 # ssh 
 ## forward
 ### 1
