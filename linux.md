@@ -12,11 +12,21 @@ sed -i "s/ls -alF/ls -alFh/g" ~/.bashrc
 source ~/.bashrc
 ```
 # ssh 
-## forward
+## jumper server forward
 ### 1
 enable `AllowAgentForwarding yes` in `/etc/ssh/sshd_config` in target server host
 reload sshd server
-### 2
+## reload
+```sh
+/etc/init.d/ssh reload
+/etc/init.d/sshd reload
+```
+or
+```sh
+sudo systemctl reload ssh
+sudo systemctl reload sshd
+```
+### 2 client forward
 add `ForwardAgent    yes` to `~/.ssh/config`
 ```config
 Host    xxx
@@ -28,15 +38,12 @@ Host    xxx
 ```
 or add `-A` option in ssh:`ssh -A -p PORT user@host`
 
-### 3
+### 3 goto
 `vi ~/bin/goto`
 ```sh
 ssh-add ~/.ssh/id_ed25519
 ssh -A -p PORT user@host
 ```
-
-
-
 ## ssh secure
 ```config
 PermitRootLogin no # 禁止root用户远程登录
@@ -44,17 +51,9 @@ PasswordAuthentication no # 是否允许使用基于密码的认证
 PermitEmptyPasswords no # 禁止使用空密码的用户登录
 ChallengeResponseAuthentication no
 UsePAM no
-```
-## reload
-```sh
-/etc/init.d/ssh reload
-/etc/init.d/sshd reload
-```
-or
-```sh
-sudo systemctl reload ssh
 sudo systemctl reload sshd
 ```
+
 # mirror
 change
 `deb http://archive.ubuntu.com/ubuntu focal main restricted`
