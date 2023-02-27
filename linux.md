@@ -6,9 +6,14 @@ sudo timedatectl set-timezone Asia/Shanghai
 date -R
 ```
 
-# better ll
+# better ll && cd
 ```sh
 sed -i "s/ls -alF/ls -alFh/g" ~/.bashrc
+cat >>~/.bashrc <<EOF
+function cd {
+  builtin cd "$@" && ll
+}
+EOF
 source ~/.bashrc
 ```
 # ssh 
