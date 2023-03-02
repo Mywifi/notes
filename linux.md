@@ -118,6 +118,10 @@ EOF
 cat /etc/docker/daemon.json
 sudo systemctl restart docker
 ```
+# docker container exit when ssh logout
+```
+loginctl enable-linger $UID
+```
 # systemd
 cat frps.service 
 ```
