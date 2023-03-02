@@ -118,4 +118,22 @@ EOF
 cat /etc/docker/daemon.json
 sudo systemctl restart docker
 ```
+# systemd
+cat frps.service 
+```
+[Unit]
+Description=Frp Server Service
+After=network.target
+
+[Service]
+Type=simple
+User=nobody
+Restart=on-failure
+RestartSec=5s
+ExecStart=/usr/bin/frps -c /etc/frp/frps.ini
+LimitNOFILE=1048576
+
+[Install]
+WantedBy=multi-user.target
+```
 # end
