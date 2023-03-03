@@ -84,9 +84,9 @@ sudo apt install python3-pip
 ## [official install](https://docs.ansible.com/ansible/6/installation_guide/installation_distros.html#installing-ansible-on-ubuntu)
 ```sh
 sudo apt update
-sudo apt install software-properties-common
+sudo apt install software-properties-common -y
 sudo add-apt-repository --yes --update ppa:ansible/ansible
-sudo apt install ansible
+sudo apt install ansible -y
 ```
 ## host
 vi host.NAME
