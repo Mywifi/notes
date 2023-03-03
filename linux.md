@@ -93,8 +93,18 @@ vi host.NAME
 ```
 [NAME]
 192.168.1.[1:100]
+
+[NAME:vars]
+ansible_ssh_user=ubuntu
 ```
-## command
+cat ~/.ssh/config
+`
+StrictHostKeyChecking=accept-new
+`or
+`
+StrictHostKeyChecking no
+`
+## ansible command
 `ansible -i host.NAME NAME -m ping`
 `ansible -i host.NAME NAME -m shell -a "uptime"`
 `-b`to become root`-K`to input root passwd
