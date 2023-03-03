@@ -127,7 +127,8 @@ ansible <host> -m mount -a "path=/path/to/mount state=unmounted"
 ## apt
 ```sh
 ansible ar -i ~/ar/host.ar -m apt -a "update_cache=yes"
-ansible ar -i ~/ar/host.ar -m apt -a "name=atop,nethogs,nload,sysstat,iotop,htop,sensors state=present"
+ansible ar -i ~/ar/host.ar -m apt -a "name=atop,nethogs,nload,sysstat,iotop,htop,lm-sensors state=present" -b
+
 
 ```
 # tmux
