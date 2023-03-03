@@ -119,6 +119,11 @@ ansible <host> -m file -a "path=/path/to/file state=absent"
 ansible <host> -m file -a "path=/path/to/file state=present"
 
 ```
+## mount
+```sh
+ansible <host> -m mount -a "path=/path/to/mount state=unmounted"
+
+```
 # tmux
 vi ~/.tmux.conf
 `set -g mouse on` or `ctrl+b :` `setw -g mouse on`
