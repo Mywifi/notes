@@ -124,6 +124,12 @@ ansible <host> -m file -a "path=/path/to/file state=present"
 ansible <host> -m mount -a "path=/path/to/mount state=unmounted"
 
 ```
+## apt
+```sh
+ansible ar -i ~/ar/host.ar -m apt -a "update_cache=yes"
+ansible ar -i ~/ar/host.ar -m apt -a "name=atop,nethogs,nload,sysstat,iotop,htop,sensors state=present"
+
+```
 # tmux
 vi ~/.tmux.conf
 `set -g mouse on` or `ctrl+b :` `setw -g mouse on`
