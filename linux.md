@@ -9,9 +9,11 @@ date -R
 # better ll && cd
 ```sh
 sed -i "s/ls -alF/ls -alFh/g" ~/.bashrc
+```
+```sh
 cat >>~/.bashrc <<EOF
 function cd {
-  builtin cd "$@" && ll
+  builtin cd "\$@" && ll
 }
 EOF
 source ~/.bashrc
