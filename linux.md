@@ -169,4 +169,6 @@ LimitNOFILE=1048576
 [Install]
 WantedBy=multi-user.target
 ```
+## rsync
+`rsync -aS --info=progress2 src dst`
 # end
