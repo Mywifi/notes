@@ -185,4 +185,11 @@ echo 2 > /proc/sys/vm/drop_caches:表示清除回收 slab 分配器中的对象�
 echo 3 > /proc/sys/vm/drop_caches:表示清除 pagecache 和 slab 分配器中的缓存对象。
 
 ```
+
+## Ubuntu挂载Windows共享文件夹
+```sh
+sudo apt install cifs-utils -y
+sudo mount -t cifs -o username=administrator //192.168.31.26/share-folder-in-windows /share
+```
+
 # end
