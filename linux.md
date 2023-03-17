@@ -191,5 +191,8 @@ echo 3 > /proc/sys/vm/drop_caches:表示清除 pagecache 和 slab 分配器中�
 sudo apt install cifs-utils -y
 sudo mount -t cifs -o username=administrator //192.168.31.26/share-folder-in-windows /share
 ```
-
+## vi 保存没有权限
+```sh
+:w !sudo tee %
+```
 # end
