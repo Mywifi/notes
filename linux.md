@@ -214,5 +214,47 @@ echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 
 sudo apt update
 sudo apt install nginx
 ```
+## certbot-https 
+[instructions](https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal)
+```sh
+sudo apt install snapd
+sudo snap install core
+sudo snap refresh core
 
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo certbot --nginx
+```
+## nginx conf
+```conf
+server {
+  server_name bridgexdex.com www.bridgexdex.com;
+  
+  error_log /var/log/nginx/bridgexdex-error.log;
+  access_log /var/log/nginx/bridgexdex-access.log;
+
+  listen 80;
+  root /home/ubuntu/deploy/bridgexdex/dist/;
+  
+  location / {
+	try_files $uri $uri/ /index.html;
+	index index.html;
+
+	gzip on;
+        gzip_min_length 1k;
+        # gzip_buffers 4 16k;
+        gzip_http_version 1.1;
+        gzip_comp_level 4;
+        gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/gif;
+        gzip_vary off;
+        gzip_disable "MSIE [1-6]\.";
+
+        if ($request_filename ~* .*\.(?:htm|html)$)  ## 配置页面不缓存
+        {
+                add_header Cache-Control "private, no-store, no-cache, must-revalidate, proxy-revalidate";
+        }
+  }
+   
+}
+```
 # end
