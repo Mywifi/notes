@@ -130,8 +130,12 @@ StrictHostKeyChecking no
 ```sh
 ansible ar -i ~/ar/host.ar -m apt -a "update_cache=yes"
 ansible ar -i ~/ar/host.ar -m apt -a "name=atop,nethogs,nload,sysstat,iotop,htop,lm-sensors state=present" -b
-
-
+```
+## pip
+`ansible all -i./hosts -m pip -a "requirements=/path/to/your/requirements.txt extra_args='--index-url https://pypi.tuna.tsinghua.edu.cn/simple/'"`
+## mkdir
+```sh
+ansible all -i ./hosts -m file -a "dest=/path/to/c state=directory"
 ```
 ## copy
 ```sh
@@ -139,7 +143,9 @@ ansible group1  -m copy -a "src=test.conf dest=/root  mode=644 owner=root"
 ```
 ## file
 ```sh
+# delete file
 ansible <host> -m file -a "path=/path/to/file state=absent"
+# create file
 ansible <host> -m file -a "path=/path/to/file state=present"
 
 ```
