@@ -121,10 +121,18 @@ StrictHostKeyChecking=accept-new
 StrictHostKeyChecking no
 `
 ## ansible command
-`ansible -i ./hosts groupA -m ping`
-`ansible -i ./hosts groupA -m shell -a "uptime"`
-`-b`to become root`-K`to input root passwd
+- `ansible -i ./hosts groupA -m ping`
+- `ansible -i ./hosts groupA -m shell -a "uptime"`
+- `-b`to become root
+- `-K`to input root passwd
+- `ansible all -i ./hosts -m shell -a "apt update" -b -K`
+## apt
+```sh
+ansible ar -i ~/ar/host.ar -m apt -a "update_cache=yes"
+ansible ar -i ~/ar/host.ar -m apt -a "name=atop,nethogs,nload,sysstat,iotop,htop,lm-sensors state=present" -b
 
+
+```
 ## copy
 ```sh
 ansible group1  -m copy -a "src=test.conf dest=/root  mode=644 owner=root"
@@ -140,13 +148,7 @@ ansible <host> -m file -a "path=/path/to/file state=present"
 ansible <host> -m mount -a "path=/path/to/mount state=unmounted"
 
 ```
-## apt
-```sh
-ansible ar -i ~/ar/host.ar -m apt -a "update_cache=yes"
-ansible ar -i ~/ar/host.ar -m apt -a "name=atop,nethogs,nload,sysstat,iotop,htop,lm-sensors state=present" -b
 
-
-```
 # tmux
 vi ~/.tmux.conf
 `set -g mouse on` or `ctrl+b :` `setw -g mouse on`
