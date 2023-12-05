@@ -81,23 +81,37 @@ sudo bash -c 'echo "ubuntu ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers'
 cat /etc/sudoers
 ```
 # ansible
+## Control node requirements
+Red Hat, Debian, Ubuntu, macOS, BSDs, WSL(Windows under a Windows Subsystem for Linux)
+
 ## simple install
 sudo apt install python3-pip
-## [official install](https://docs.ansible.com/ansible/6/installation_guide/installation_distros.html#installing-ansible-on-ubuntu)
+## [official install_on_ubuntu](https://docs.ansible.com/ansible/6/installation_guide/installation_distros.html#installing-ansible-on-ubuntu)
 ```sh
 sudo apt update
 sudo apt install software-properties-common -y
 sudo add-apt-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible -y
 ```
-## host
-vi host.NAME
+## pip install
+```sh
+# install
+python3 -m pip install --user ansible
+# upgrade
+python3 -m pip install --upgrade --user ansible
 ```
-[NAME]
+## host
+create a host file, like: `vi ./hosts`
+```
+192.168.2.1
+[groupA]
 192.168.1.[1:100]
 
-[NAME:vars]
+[groupA:vars]
 ansible_ssh_user=ubuntu
+
+[all:vars]
+ansible_ssh_user=root
 ```
 cat ~/.ssh/config
 `
@@ -107,8 +121,8 @@ StrictHostKeyChecking=accept-new
 StrictHostKeyChecking no
 `
 ## ansible command
-`ansible -i host.NAME NAME -m ping`
-`ansible -i host.NAME NAME -m shell -a "uptime"`
+`ansible -i ./hosts groupA -m ping`
+`ansible -i ./hosts groupA -m shell -a "uptime"`
 `-b`to become root`-K`to input root passwd
 
 ## copy
