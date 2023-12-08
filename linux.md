@@ -77,8 +77,7 @@ sudo sed -i -e 's/http:\/\/archive/mirror:\/\/mirrors/' -e 's/\/ubuntu/\/mirrors
 
 # sudo no passwd
 ```sh
-sudo bash -c 'echo "ubuntu ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers'
-cat /etc/sudoers
+sudo bash -c 'echo "$USER ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers'
 ```
 # ansible
 ## Control node requirements
