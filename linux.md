@@ -99,6 +99,10 @@ python3 -m pip install --user ansible
 # upgrade
 python3 -m pip install --upgrade --user ansible
 ```
+## ask pass
+```
+ansible all -i ./hosts -m ping -c ssh --ask-pass
+```
 ## host
 create a host file, like: `vi ./hosts`
 ```
