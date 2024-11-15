@@ -5,6 +5,11 @@ date -R # show time zone
 sudo timedatectl set-timezone Asia/Shanghai 
 date -R
 ```
+## hostname
+`sudo hostnamectl set-hostname new-hostname`
+`sudo vi /etc/host`
+127.0.1.1 new-hostname
+
 ## new user
 `adduser ubuntu`
 enter your password
@@ -21,6 +26,7 @@ touch /home/ubuntu/.ssh/authorized_keys
 bash -c 'echo "ubuntu ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers'
 cat /etc/sudoers
 ```
+
 ### switch user and load path
 ```bash
 su - ubuntu
@@ -89,15 +95,7 @@ to
 sudo sed -i -e 's/http:\/\/archive/mirror:\/\/mirrors/' -e 's/\/ubuntu/\/mirrors.txt/' /etc/apt/sources.list
 ```
 
-# hostname
-`sudo hostnamectl set-hostname username`
-`sudo vi /etc/host`
-127.0.1.1 username
 
-# sudo no passwd
-```sh
-sudo bash -c 'echo "$USER ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers'
-```
 # ansible
 ## Control node requirements
 Red Hat, Debian, Ubuntu, macOS, BSDs, WSL(Windows under a Windows Subsystem for Linux)
