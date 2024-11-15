@@ -1,30 +1,31 @@
 # linux command tips
-# timezone
+## timezone
 ```sh
 date -R # show time zone
 sudo timedatectl set-timezone Asia/Shanghai 
 date -R
 ```
-# new user
+## new user
 `adduser ubuntu`
 enter your password
 ```bash
 mkdir -p /home/ubuntu/.ssh
 chown -R ubuntu /home/ubuntu/.ssh
 touch /home/ubuntu/.ssh/authorized_keys
-echo '**pub key**' >>/home/ubuntu/.ssh/authorized_keys
 ```
+`echo '**pub key**' >>/home/ubuntu/.ssh/authorized_keys`
 
-## sudo no pwd
+
+### sudo no pwd
 ```bash
 bash -c 'echo "ubuntu ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers'
 cat /etc/sudoers
 ```
-## switch user and load path
+### switch user and load path
 ```bash
 su - ubuntu
 ```
-## better ll && cd
+### better ll && cd
 ```sh
 sed -i "s/ls -alF/ls -alFh/g" ~/.bashrc
 ```
