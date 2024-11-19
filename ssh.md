@@ -7,6 +7,8 @@ reload sshd server
 ```sh
 /etc/init.d/ssh reload
 /etc/init.d/sshd reload
+
+/usr/sbin/sshd reload
 ```
 or
 ```sh
