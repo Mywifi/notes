@@ -53,12 +53,18 @@ ssh -A -p PORT user@host
 ```
 ## ssh secure
 ```config
+sudo vi /etc/ssh/sshd_config
+
 PermitRootLogin no # 禁止root用户远程登录
-PasswordAuthentication no # 是否允许使用基于密码的认证
+PasswordAuthentication no # 禁止使用基于密码的认证
+PubkeyAuthentication yes   # 启用公钥认证
 PermitEmptyPasswords no # 禁止使用空密码的用户登录
-ChallengeResponseAuthentication no
-UsePAM no
-sudo systemctl reload sshd
+ChallengeResponseAuthentication no # 禁用挑战-应答认证，仅使用密码或密钥认证
+UsePAM no # 禁用 PAM，仅依赖 SSH 内置的密码/密钥认证
+
+sudo systemctl status ssh 
+sudo systemctl reload ssh # 平滑重载，避免断联
+sudo systemctl restart ssh # 完全重启，中断连接
 ```
 
 # mirror
