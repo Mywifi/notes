@@ -237,6 +237,14 @@ echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 
 sudo apt update
 sudo apt install nginx
 ```
+start nginx
+```sh
+sudo systemctl start nginx
+sudo chown -R www-data:www-data /var/log/nginx
+sudo chmod -R 755 /var/log/nginx
+sudo nginx -s reload
+```
+
 ## certbot-https 
 [instructions](https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal)
 ```sh
