@@ -239,10 +239,9 @@ sudo apt install nginx
 ```
 start nginx
 ```sh
-chmod g+x /home/ubuntu/deploy/lnpay-web/dist/index.html
-sudo chown -R www-data:www-data /var/log/nginx
-sudo chmod -R 755 /var/log/nginx
 sudo usermod -aG ubuntu nginx
+sudo chmod -R 755 /home/ubuntu/deploy/lnpay-web/dist
+chmod g+x /home/ubuntu/deploy/lnpay-web/dist/index.html
 
 sudo systemctl start nginx
 sudo nginx -s reload
