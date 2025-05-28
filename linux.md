@@ -292,4 +292,14 @@ server {
    
 }
 ```
+## github 多个密钥
+`vi ~/.ssh/config`
+```sh
+Host github-work
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa_work
+  IdentitiesOnly yes
+```
+`git remote set-url origin git@github-work:username/repo.git`
 # end
